@@ -2,8 +2,10 @@ FROM python:3.6
 
 WORKDIR /app
 
-RUN pip install hug
+COPY requirements.txt .
 
-COPY ./api.py .
+RUN pip install -r requirement.txt
+
+COPY api.py .
 
 CMD ["hug", "-f", "api.py"]
